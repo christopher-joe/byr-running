@@ -143,7 +143,7 @@ class Byr:
         if self.jump == 1:
             self.y -= 10
             self.jump_y_add += 10
-            if self.jump_y_add == 300:
+            if self.jump_y_add == 200:
                 self.jump = 2
 
         if self.jump == 2:
