@@ -168,43 +168,15 @@ class Byr:
                 self.jump = 0
 
     def draw(self):
-        if self.style == 0:
-            if self.ret == 0 and 1:
-                self.index = 0
-            if self.ret == 2 and 3:
-                self.index = 1
-            if self.ret == 4 and 5:
-                self.index = 2
-            if self.ret == 6 and 7:
-                self.index = 3
-            if self.ret == 8 and 9:
-                self.index = 4
-            if self.ret == 10 and 11:
-                self.index = 5
-            if self.ret == 12 and 13:
-                self.index = 6
-            if self.ret == 14 and 15:
-                self.index = 7
-        else:
-            if self.ret == 0 and 1:
-                self.index = 0
-            if self.ret == 2 and 3:
-                self.index = 1
-            if self.ret == 4 and 5:
-                self.index = 2
-            if self.ret == 6 and 7:
-                self.index = 3
-            if self.ret == 8 and 9:
-                self.index = 4
-            if self.ret == 10 and 11:
-                self.index = 5
-            if self.ret == 12 and 13:
-                self.index = 6
-            if self.ret == 14 and 15:
-                self.index = 7
-
-        if self.ret == 15:
+        if self.ret >= 40:
             self.ret = 0
+        self.index = int(self.ret / 5)
+
+        image = self.image[self.index]
+        self.width = image.get_width()
+        self.height = image.get_height()
+        self.main_scene.scene.blit(image, (self.x, self.y))
+        self.ret += 1
 
         image = self.image[self.index]
         self.width = image.get_width()
