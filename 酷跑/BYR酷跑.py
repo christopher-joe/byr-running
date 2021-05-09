@@ -138,13 +138,28 @@ class Byr:
         if self.style == 0 and self.jump == 0:
             self.jump = 1
             self.main_scene.jump_sound.play()
+        if self.style == 0 and self.jump == 2:
+            self.jump = 4
+            self.main_scene.jump_sound.play()
 
     def move(self):
         if self.jump == 1:
             self.y -= 10
             self.jump_y_add += 10
-            if self.jump_y_add == 200:
+            if self.jump_y_add == 180:
                 self.jump = 2
+
+        if self.jump == 4:
+            self.y -= 10
+            self.jump_y_add += 10
+            if self.jump_y_add == 280:
+                self.jump = 5
+
+        if self.jump == 5:
+            self.y += 10
+            self.jump_y_add -= 10
+            if self.jump_y_add == 0:
+                self.jump = 0
 
         if self.jump == 2:
             self.y += 10
